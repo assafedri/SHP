@@ -1,0 +1,229 @@
+// Yes / No
+.qBtns{
+	
+	// Devil / Angel
+	&.icons{
+		text-align: center;
+
+		.qBtn{
+			display: inline-block;
+			margin: 0 10px;
+
+			> button{
+				width: 110px;
+				height: 90px;
+				padding: 0;
+				background-color: transparent;
+				background-repeat: no-repeat;
+				background-size: 115px;
+				background-position: center;
+				border: none;
+				cursor: pointer;
+				
+				@media(@tabV){
+					width: 120px;
+				}
+
+				&.devil{
+					background-image: url(../img/icons/devil.svg);
+				}
+
+				&.angel{
+					background-image: url(../img/icons/angel.svg);
+				}
+				
+				&:hover, &:focus, &.selected{
+					outline: none;
+					
+					&.devil{
+						background-image: url(../img/icons/devil_selected.svg);
+					}
+					
+					&.angel{
+						background-image: url(../img/icons/angel_selected.svg);
+					}
+				}				
+			}
+
+			> span{
+				display: block;
+				text-align: center;
+				line-height: 1;
+			}
+			
+			> button:focus + span{
+				text-decoration: underline;
+			}
+
+
+		}	
+	}
+	
+	&.radio{
+		display: flex;
+		
+		.qBtn{
+			width: 50%;
+			
+			> button.radio{
+				
+				width: 100%;
+				background: url(../img/icons/radio.svg) no-repeat;
+				background-size: 15px;
+				background-position: top 10px @direction 10px;
+				border: none;
+				padding: 10px;
+				padding-@{direction}: 30px;
+				color: @white;
+				text-align: @direction;
+				cursor: pointer;
+				
+
+				@media(@tabH){
+					padding: 15px;
+					padding-@{direction}: 45px;
+					background-size: 20px;
+					background-position: top 15px @direction 15px;
+				}
+
+				&:hover, &:focus{
+					background-color: lighten(@secColor, 5%);
+					outline: none;
+				}
+
+				> span{
+					line-height: 1.25;
+				
+					@media(@tabH){
+						font-size: 1.25em;
+					}
+				}
+			}
+
+			&.selected{
+				> button.radio{
+					background-color: lighten(@secColor, 5%);
+					background-image: url(../img/icons/radio_full.svg);
+				}
+			}
+		}
+	}
+	
+	&.text{
+		.qBtn{
+			width: 100%;
+		}
+	}
+}
+
+.feedback{
+	display: none;
+
+	.option{
+		display: none;
+		background-repeat: no-repeat;
+		background-position: @direction;
+		background-size: 30px;
+		padding: 10px 0;
+		padding-@{direction}: 35px;
+		
+		@media(@tabH){
+			background-size: 45px;
+			padding: 15px 0;
+			padding-@{direction}: 50px;
+		}
+
+		&.show{
+			display: block;
+		}
+		
+		&.correct{
+			background-image: url(../img/icons/correct.svg);
+		}
+
+		&.wrong{
+			background-image: url(../img/icons/wrong.svg);
+		}
+	}
+}
+
+// Reveal
+.btn-reveal{
+	background-image: url(../img/icons/arr_down.svg);
+	background-repeat: no-repeat;
+	background-position: @op-direction;
+	background-color: @gray;
+	background-size: 35px;
+	padding: 8px 15px;
+	padding-@{op-direction}: 45px;
+	font-size: 1em;
+	color: @white;
+	border: none;
+	cursor: pointer;
+	margin: 0 auto;
+
+	&:hover, &:focus{
+		background-color: lighten(@gray, 10%);
+		outline: none;
+	}
+}
+
+// Accordion
+.accordionContainer{
+	article{
+		margin: 0 0 50px;
+		
+		.title{
+			position: relative;
+			text-align: @direction;
+			margin-bottom: 10px;
+			
+			button{
+				position: absolute;
+				bottom: -30px;
+				@{op-direction}: -15px;
+				width: 35px;
+				height: 35px;
+				border-radius: 50%;
+				border: none;
+				cursor: pointer;
+				background: @gray;
+				display: block;
+				font-size: 30px;
+				line-height: 34px;
+				padding: 0;
+   				align-items: initial;
+				
+				&:after{
+					content: "+";
+					position: absolute;
+					bottom: 0;
+					@{op-direction}: 0;
+					width: 35px;
+					height: 35px;
+					color: @white;
+					display: block;
+					vertical-align: middle;
+				}
+				
+				&:hover, &:focus{
+					outline: none;
+					background: lighten(@gray, 15%);
+				}
+			}
+		} 
+		
+		.content{
+			background: @white;
+			color: @gray;
+			height: 5px;
+		    overflow: hidden;
+			
+			p{
+				padding: 15px;
+				line-height: 1.2;
+				text-align: @direction;
+			}
+		} 
+	}
+}

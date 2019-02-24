@@ -1,0 +1,107 @@
+#introduction{
+	
+	.fp-tableCell{
+		vertical-align: inherit;
+	}
+	
+	.wrapper{
+		margin: 15px 0 0;
+		padding: 0 15px;
+		overflow: hidden;
+		box-sizing: border-box;
+		
+		> * {
+			box-sizing: border-box;
+		}
+		
+		@media(@tabV){
+			margin: 30px 0 0;
+			padding: 0 30px;
+		}
+		
+		@media(@desktop){
+			padding: 0 60px;
+		}
+		
+		h2{
+			display: none;
+			
+			@media(@tabV){
+				display: block;
+				color: @mainColor;
+				font-weight: bold;
+				font-size: 2em;
+				margin: 0 0 30px;
+			}
+		
+			@media(@tabH){
+				font-size: 3em;
+			}
+		}
+		
+		blockquote, .intro{			
+			p{
+				font-size: 4vw;
+				
+				@media(@tabV){
+					font-size: 2.5vw;
+				}
+				
+				@media(@tabH){
+					font-size: 1.5em;
+					line-height: 1.25;
+				}
+				
+				@media(@desktop){
+					font-size: 1.75em;
+					line-height: 1.5;
+				}
+			}
+		} 
+		
+		blockquote{
+			background-color: @gray;
+			padding: 15px;
+			margin: 0 0 2.5vh;
+			
+			@media(@tabV){
+				padding: 30px;
+				width: 50%;
+				margin: 0;
+				float: @direction;
+			}
+			
+			@media(@desktop){
+				max-width: 600px;	
+			}
+			
+			p{
+				color: @white; 
+			}
+		}
+		
+		.intro{
+			background: url(../img/icons/quotes_gray.svg) no-repeat;
+			background-position: @direction top;
+			background-size: 13vw;
+			padding-top: 12.5vw;
+			
+			@media(@tabV){
+				float: @op-direction;
+				width: 50%;
+				padding: 15px;
+				padding-top: 10vw;
+				background-size: 10vw;
+				margin-top: 25vh;
+				background-position: @direction 15px top;
+			}
+			
+			@media(@desktop){
+				
+			}
+		}
+		
+		
+		
+	}
+}

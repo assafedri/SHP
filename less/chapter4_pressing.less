@@ -1,0 +1,285 @@
+/* Backgound Images paths ------------------------------------------------------- */
+@pressingSteps: 		'../img/slides/pressing/steps/main.png';
+
+
+/* Pressing Intro ------------------------------------------ */
+#pressing_steps{
+	.fp-tableCell{
+		vertical-align: inherit;
+		
+		@media(@tabV){
+			vertical-align: middle;
+		}
+	}
+	
+	.slideImg{
+		@media(@tabH){
+			background-image: url('@{pressingSteps}'); 
+			transform: matrix(1, 0, 0, 1, 0, 0) !important;
+			background-position: 15%;
+			top: 50px;
+		} 
+		
+		@media(@desktop){
+			background-position: 25%; 
+		}
+	}
+	
+	.wrapper{
+		padding: 15px 45px;
+		
+		@media(@tabV){
+			padding: 30px;
+		}
+		
+		@media(@tabH){
+			padding: 60px;
+			max-width: 65vw;
+			box-sizing: border-box;
+		}
+		
+		h4{
+			margin: 0 0 15px;
+			font-size: 1em;
+			
+			@media(@tabV){
+				margin: 0 0 30px;
+				font-size: 1.2em;
+			}
+			
+			@media(@tabH){
+				text-align: center;
+				font-size: 1.5em;
+			}
+		}
+		
+		.progression{
+			max-width: 600px;
+			margin: 0 auto;
+			
+			.pr_step{
+				margin-bottom: 40px;
+				
+				@media(@tabV){
+					margin-bottom: 60px;
+				}
+				
+				.step{
+					background: @secColor;
+					border-radius: 100%;
+					color: @white;
+					width: 40px;
+					height: 40px;
+					position: relative;
+					display: table;
+					margin: 0 auto;
+					
+					@media(@tabV){
+						width: 60px;
+						height: 60px;
+					}
+					
+					span{
+						display: table-cell;
+						vertical-align: middle;
+						text-align: center;
+						font-size: 1.25em;
+						
+						@media(@tabV){
+							font-size: 1.5em;
+						}
+					}	
+				}
+				
+				.desc{
+					background: darken(@white, 10%);
+					padding: 35px 10px 10px;
+					box-shadow: 1px 1px 2px 1px #ccc; 
+					text-align: center;
+					max-width: 400px;
+					margin: -30px auto 0;
+					line-height: 1.25;
+					box-sizing: border-box;
+					
+					@media(@tabV){
+						font-size: 1.2em;
+						padding: 45px 15px 15px;
+					}
+					
+					@media(@tabH){
+						background: @white;
+					}
+				}
+				
+				&:first-child{
+					.step{
+						width: 150px;
+						border-radius: 50px;
+						
+						@media(@tabV){
+							width: 180px;
+						}
+						
+						@media(@desktop){
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}    
+					}
+					
+					.desc{
+						@media(@desktop){
+							padding: 15px;
+							padding-@{direction}: 80px;
+							margin: 0 auto;
+						}
+					}
+				}
+				
+				&:nth-child(even), &:nth-child(2n+3){
+					.desc{
+						position: relative;
+						z-index: -1;
+
+						&:before{
+							position: absolute;
+							background-repeat: no-repeat;
+							content: " ";
+							width: 145px;
+							background-image: url(../img/icons/arr2.svg);
+							right: 0px;
+							top: -55px;
+							height: 50px;
+
+							@media(@tabV){
+								width: 225px;
+								height: 70px;
+								top: -96px;
+							}
+							
+							@media(@tabV){
+								width: 210px;
+							}
+						}
+					}
+				}
+				
+				&:nth-child(even){
+					@media(@desktop){
+						margin-@{direction}: -100px;
+						
+						.desc{
+							&:before{
+								background-image: url(../img/icons/arr1.svg);
+								width: 83px;
+								height: 110px;
+							}
+						}
+					}
+				}
+				
+				&:nth-child(2n+3){
+					@media(@desktop){
+						margin-@{op-direction}: -200px;
+					}
+				}
+			}
+		}
+	}
+} 
+
+/*
+.scenario .progression{
+
+	
+	> div{
+		position: relative;
+		display: inherit;
+		padding: 0;
+		margin: 0 0 50px;
+		vertical-align: middle;
+		
+		&:first-child{
+			@media(@tabH){
+				max-width: 500px;
+				margin: 0 auto 50px;
+			}
+		}
+		
+		.step{			
+			@media(@tabH){
+				width: 70px;
+				height: 70px;
+			}
+		}
+		
+		&:first-child{
+			.step{
+				width: 180px;
+				border-radius: 50px;
+				
+				@media(@desktop){
+					width: 240px;
+					position: absolute;
+					margin: 0;
+					@{direction}: 0;
+					top: 50%;
+					transform: translate(75%, -50%);
+				}
+				
+				> span{
+					font-size: 1.2em;
+					
+					@media(@desktop){
+						font-size: 1.5em;
+					}
+				}
+			}
+			
+			.desc{
+				@media(@desktop){
+					max-width: none;
+   					padding: 15px;
+					padding-@{direction}: 100px;
+    				text-align: @direction;
+				}	
+			}
+		}
+		
+		&:nth-child(even){
+			position: relative;
+			
+			@media(@desktop){
+				float: @direction;
+				margin: 0 0 80px;
+				
+				&:before{
+					width: 80px;
+					background-image: url(../img/icons/arr1.svg);
+					right: -35px;
+					top: -40px;
+					height: 110px;
+				}
+			}
+			
+		}
+		
+		&:nth-child(2n+3){
+			position: relative;
+			
+			@media(@desktop){
+				float: @op-direction;
+				margin: 0 0 80px;
+				
+				&:before{
+					width: 260px;
+					right: -80px;
+					top: -88px;
+					height: 110px;
+					
+				}
+			}
+		}
+	}
+}
+*/

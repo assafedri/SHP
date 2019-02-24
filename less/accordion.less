@@ -1,0 +1,143 @@
+.fp-section.accordion{
+	.fp-tableCell{
+		vertical-align: inherit;
+	}
+	
+	*{
+		box-sizing: border-box;
+	}
+	
+	.wrapper{
+		padding: 15px;
+		
+		@media(@tabV){
+			padding: 60px 30px 30px;
+		}
+	}
+	
+	h4{
+		margin: 0 0 30px;
+		text-align: center;
+		
+		@media(@tabV){
+			font-size: 1.2em;
+		}
+		
+		@media(@tabH){
+			margin: 0 0 60px;
+			font-size: 1.5em;
+			line-height: 1.5;
+		}
+	}
+	
+	.accordionContainer{
+		@media(@tabV){
+			width: 80%; 
+			margin: 0 auto;
+		}
+		
+		@media(@tabH){
+			max-width: 1200px;
+			width: auto;
+		}
+		
+		article{
+			margin: 0 0 15px;
+			
+			@media(@tabV){
+				margin: 0 0 60px;
+			}
+			
+			@media(@tabH){
+				padding: 0 15px;
+				width: ~"calc(100% / 3)";
+				float: @direction;
+			}
+			
+			.title{
+				display: flex;
+				align-items: baseline;
+				margin: 0 0 5px;
+				
+				@media(@tabV){
+					flex-direction: column;
+				}
+				
+				> div{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 35px;
+					height: 35px;
+					border-radius: 50%;
+					background: @secColor;
+					margin-@{op-direction}: 5px;
+					
+					@media(@tabV){
+						margin: 0 auto;
+						height: 55px;
+						width: 55px;
+					}
+					
+					@media(@tabV){
+						height: 75px;
+						width: 75px;
+					}
+					
+					span{
+						color: @white;
+						font-size: 1.2em;
+						
+						@media(@tabV){
+							font-size: 1.5em;
+						}
+						
+						@media(@tabH){
+							font-size: 2.5em;
+						}
+					}
+				}
+				
+				> span{
+					@media(@tabV){
+						margin: 5px auto 15px;
+						font-size: 1.2em;
+					}
+					
+					@media(@tabH){
+						margin: 10px auto 30px;
+					}
+				}
+				
+				button{
+					top: 0;
+					@{op-direction}: 0;
+					
+					@media(@tabV){
+						top: auto;
+						bottom: -25px;
+						@{op-direction}: 50%; 
+						transform: translateX(-50%);
+					}
+				}
+			}
+			
+			.content{
+				background: darken(@white, 10%);
+				
+				p{
+					line-height: 1.25;
+					
+					@media(@tabV){
+						font-size: 1.2em;
+						padding-top: 25px;
+					}
+					
+					@media(@tabH){
+						line-height: 1.5;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,664 @@
+/* Backgound Images paths ------------------------------------------------------- */
+@behaviorIntro: 		'../img/slides/behavior/intro/main.jpg';
+@behaviorBlackmail:	 	'../img/slides/behavior/blackmail/main.jpg';
+@behaviorIndecent: 		'../img/slides/behavior/indecent/main.jpg';
+@behaviorSuggestions: 	'../img/slides/behavior/suggestions/main.jpg';
+@behaviorSexuality: 	'../img/slides/behavior/sexuality/main.jpg';
+@behaviorHumiliation: 	'../img/slides/behavior/humiliation/main.jpg';
+@behaviorPublication: 	'../img/slides/behavior/publication/main.jpg'; 
+@behaviorSummary: 		'../img/slides/behavior/publication/summary.jpg'; 
+
+/* Intro To Behavior Section ------------------------------------------------------- */
+#behavior{
+	
+	.fp-tableCell{
+		vertical-align: inherit;
+		
+		@media(@tabH){ 
+			vertical-align: middle;
+		}
+	}
+	
+	.wrapper{
+		margin: 15px 0 0;
+		padding: 0 15px;
+		overflow: hidden;
+		box-sizing: border-box;
+		
+		> * {
+			box-sizing: border-box;
+		}
+		
+		@media(@tabV){
+			margin: 30px 0 0;
+			padding: 0 30px;
+		}
+		
+		@media(@desktop){
+			padding: 0 60px;
+		}
+		
+		article{
+			@media(@tabH){ 
+				width: ~"calc(50% - 30px)";
+			}
+			
+			@media(@desktop){
+				width: ~"calc(50% - 60px)";
+			}
+			
+			> * {
+				margin-bottom: 15px;
+				line-height: 1.5;
+
+				@media(@tabH){
+					font-size: 1.3em;
+					margin-bottom: 20px;
+				}
+
+				@media(@desktop){
+					font-size: 1.5em;
+					margin-bottom: 30px;
+				}
+			}
+		}
+		
+		#forbidden{
+			display: none;
+			
+			@media(@tabV){
+				display: block;
+				background: url('@{behaviorIntro}') no-repeat;
+				background-size: contain;
+				height: 50vh;
+				position: absolute;
+				@{op-direction}: 0;
+				bottom: 50px;
+				background-position: center;
+				width: 100%;
+			}
+			
+			@media(@tabH){
+				width: 50%;
+				height: 100vh;
+				top: 0;
+				bottom: 0;
+				background-size: cover;
+				max-width: 600px
+			}
+			
+			img{
+				position: absolute;
+				top: 50%;
+				@{op-direction}: 50%;
+				transform: translate(-50%, -50%) !important;
+				width: 35%;
+
+				@media(@tabH){
+					width: 60%;
+				}
+			}
+		}
+	}
+}
+
+#behaviorTypes{
+	ol{
+		list-style: none;
+		
+		li{
+			margin-bottom: 5px;
+			overflow: hidden;
+			
+			@media(@tabH){
+				margin-bottom: 15px;
+			}
+			
+			a{
+				color: @gray;
+				text-decoration: none;
+				overflow: hidden;
+				display: block;
+				cursor: default;
+				
+				&:focus{
+					outline: none;
+				}
+				
+				.circle{
+					float: @direction;
+
+					span{
+						border: 2px solid @mainColor;
+						background: @mainColor;
+						color: @white;
+						border-radius: 50px;
+						margin-@{op-direction}: 10px;
+						height: 18px;
+						width: 18px;
+						display: inline-block;
+						text-align: center;
+						vertical-align: middle;
+						padding: 4px;
+						font-size: 15px;
+						line-height: 1.2;
+					}
+				}
+				
+				.title{
+					float: @direction;
+				}
+			}
+		}
+		
+		li.hoverable{
+			a{
+				cursor: pointer;
+				
+				.title{
+					span{
+						text-decoration: underline;
+					}
+				}
+				
+				&:hover, &:focus{
+					.circle{
+						span{
+							background: @white;
+							color: @mainColor;
+						}
+					}
+
+					.title{
+						span{
+							color: @mainColor; 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Behavior Progress - Fixed ----------------------------------- */
+.aSide{
+	display: none;
+	
+	#behaviorTypes{
+		z-index:1000;
+		position: fixed;
+		top: 50px;
+		width: 100%;
+		padding: 5px 15px;
+		box-sizing: border-box;
+		
+		@media(@tabV){
+			padding: 10px 30px;
+		}
+		
+		@media(@tabH){
+			height: ~"calc(100vh - 50px)";
+			bottom: 0;
+			@{direction}: 0;
+			padding: 0 15px;
+			width: 60px;
+			display: flex;
+   			align-items: center;
+		}
+		
+		ol{
+			display: flex;
+			
+			@media(@tabH){
+				flex-direction: column;
+			}
+			
+			li{
+				text-align: center;
+				position: relative;
+				width: calc(~"100% / 6");
+				overflow: visible; 
+				margin: 0;
+				display: none;
+				
+				@media(@tabV){
+					display: block;
+				}
+				
+				@media(@tabH){
+					width: 30px;
+					margin: 1px 0;
+				}
+				
+				a{
+					overflow: visible;
+					
+					@media(@tabH){
+						display: flex;
+						align-items: center;
+					}
+					
+					.circle{
+						float: none;
+						z-index: 1;
+						position: relative;
+						
+						@media(@tabH){
+							height: 60px;
+							display: flex;
+							align-items: center;
+						}
+						
+						span{
+							margin: 0;
+							border: 2px solid @gray;
+							color: @gray;
+							background: @white;
+						}
+					}
+					
+					.title{
+						background: @gray;
+						color: @white;
+						position: absolute;
+						@{op-direction}: 50%;
+						transform: translateX(-50%);
+						top: 15px;
+						width: 160px;
+						height: 1px;
+						font-size: 0;
+						
+						@media(@tabV){
+							width: 180px;
+						}
+						
+						@media(@tabH){
+							height: 60px;
+							width: 1px;
+							@{direction}: 15px;
+							transform: translate(0);
+							top: 0;
+						}
+						
+						span{
+							text-decoration: none;
+						}
+
+					}
+					
+					&:focus{
+						.circle{
+							span{
+								background-color: @white;
+								color: @mainColor;
+								border-color: @mainColor;
+							}
+						}
+						
+						.title{
+							span{
+								color: @white;
+							}
+						}
+					}
+				}
+				
+				&:first-of-type{
+					a{
+						.title{
+							@{direction}: 0;
+							transform: translate(0);
+							
+							@media(@tabH){
+								@{direction}: 15px;
+							}
+						}
+					}
+
+				}
+
+				&:last-of-type{
+					a{
+						.title{
+							@{op-direction}: 0;
+							transform: translate(0);
+						}
+					}
+				}
+				
+				&.active{
+					display: block;
+					position: fixed;
+					top: 60px;
+					@{direction}: 0;
+					width: 100%;
+					padding: 0 15px;
+					box-sizing: border-box;
+					
+					@media(@tabV){
+						position: relative;
+						top: auto;
+						@{direction}: auto;
+						width: calc(100% / 6);
+					}
+					
+					@media(@tabH){
+						width: 30px;
+						padding: 0;
+					}
+					
+					a{
+						display: flex;
+						background: @gray;
+						
+						@media(@tabV){
+							display: inline;
+							background: transparent;
+						}
+						
+						@media(@tabH){
+							display: flex;
+							justify-content: center;
+						}
+						
+						.circle{
+							flex: 0 0 30px;
+							
+							@media(@tabH){
+								flex: auto;
+							}
+							
+							span{
+								border-color: @gray;
+								background: @mainColor;
+								color: @white;
+								border-radius: 0;
+								height: 30px;
+								width: 30px;
+								box-sizing: border-box;
+								
+								@media(@tabV){
+									border-radius: 50%;
+									border-color: @mainColor;
+								}
+							}
+						}
+						
+						.title{
+							font-size: inherit;
+							display: block;
+							box-sizing: border-box;
+							height: auto;
+   							width: auto;
+							top: 20px;
+							position: static;
+							transform: translate(0);
+							flex-grow: 1;
+							
+							@media(@tabV){
+								display: table;
+								height: 60px;
+								width: 180px;
+								top: 15px;
+								position: absolute;
+								transform: translateX(-50%);
+							}
+							
+							@media(@tabH){
+							    top: 0;
+								@{direction}: 15px;
+								transform: translate(0);
+							}
+							
+							@media(@desktop){
+								width: 250px;
+							}
+							
+							span{
+								display: table-cell;
+								vertical-align: middle;
+								height: 30px;
+								box-sizing: border-box;								
+								padding: 7.5px;
+								
+								@media(@tabV){
+									padding: 20px 5px 15px;
+								}
+								
+								@media(@tabH){
+									padding: 0 15px;
+								}
+								
+								@media(@desktop){
+									padding: 0 30px;
+									font-size: 1.2em;
+								}
+							}
+						}
+						
+						&:hover{
+							.title{
+								span{
+									color: inherit;		
+								}
+							}
+						}
+					}
+				}
+				
+				&.active:first-of-type,
+				&.active:last-of-type{ 
+					a{
+						.title{
+							transform: translateX(0);
+						}
+					}
+				}
+				
+				
+				&.hoverable:not(.active){
+					a{
+						.title{
+							@media(@tabH){
+								display: table;
+								width: 180px;
+								font-size: inherit;
+								background-color: lighten(@gray,20%);
+							}
+
+							@media(@desktop){
+								width: 250px;
+							}
+
+							span{
+								padding: 15px;
+								display: table-cell;
+								height: 30px;
+								vertical-align: middle;	
+								line-height: 1;
+								
+								@media(@desktop){
+									font-size: 1.2em;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Step 1 - Blackmail -------------------------------------------------------- */
+#blackmail{
+	.slideImg{
+		background-image: url('@{behaviorBlackmail}');
+
+		.bubble{
+			&#blackmail_bubble_1{
+				left: ~"calc(50% - 40px)";
+				top: ~"calc(50% - 140px)";
+				
+				@media(@tabV){
+					left: ~"calc(50% - 80px)";
+					top: ~"calc(50% - 250px)";
+				}
+				
+				@media(@tabH){
+					left: ~"calc(50% - 100px)";
+				}
+				
+			}
+
+			&#blackmail_bubble_2{
+				left: ~"calc(50% - 120px)";
+				top: ~"calc(50% - 60px)";
+				
+				@media(@tabV){
+					left: ~"calc(50% - 200px)";
+					top: ~"calc(50% - 100px)";
+				}
+				
+				@media(@tabH){
+					left: ~"calc(50% - 150px)";
+					top: ~"calc(50% - 80px)"
+				}
+			}
+		}	
+	}
+}
+
+
+/* Step 2 - Indecent Act -------------------------------------------------------- */
+#indecent{
+	.slideImg{
+		background-image: url('@{behaviorIndecent}');
+		
+		.bubble{
+			&#indecent_bubble_1{
+				top: ~"calc(50% - 170px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 265px)";
+				}
+			}
+		}	
+	}
+}
+
+/* Step 3 - Repeated Sexual Suggestions ------------------------------------------ */
+#suggestions{
+	.slideImg{
+		background-image: url('@{behaviorSuggestions}');
+		
+		.bubble{
+			&#suggestions_bubble_1{
+				top: ~"calc(50% - 120px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 160px)";
+					left: ~"calc(50% + 35px)";
+				}
+					
+				@media(@tabH){
+					top: ~"calc(50% - 100px)";
+					left: ~"calc(50% + 10px)";
+				}
+			}
+		}	
+	}
+}
+
+/* Step 4 - Sexuality ------------------------------------------ */
+#sexuality{
+	.slideImg{
+		background-image: url('@{behaviorSexuality}');
+		
+		.bubble{
+			&#sexuality_bubble_1{
+				top: ~"calc(50% - 220px)";
+				left: ~"calc(50% - 55px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 380px)";
+					left: ~"calc(50% - 70px)";
+				}
+				
+				@media(@tabH){
+					top: ~"calc(50% - 320px)";
+					left: ~"calc(50% - 70px)";
+				}
+			}
+			
+			&#sexuality_bubble_2{
+				top: ~"calc(50% - 120px)";
+				left: ~"calc(50% - 50px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 220px)";
+					left: ~"calc(50% - 90px)";
+				}
+				
+				@media(@tabH){
+					top: ~"calc(50% - 180px)";
+					left: ~"calc(50% - 80px)";
+				}
+			}
+		}	
+	}
+}
+
+/* Step 5 - Humiliation ------------------------------------------ */
+#humiliation{
+	.slideImg{
+		background-image: url('@{behaviorHumiliation}');
+		
+		.bubble{
+			&#humiliation_bubble_1{
+				top: ~"calc(50% - 150px)";
+				left: ~"calc(50% - 100px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 270px)";
+					left: ~"calc(50% - 150px)";
+				}
+			}
+		}	
+	}
+}
+
+
+/* Step 6 - Publication ------------------------------------------ */
+#publication{
+	.slideImg{
+		background-image: url('@{behaviorPublication}');
+		
+		.bubble{
+			&#publication_bubble_1{
+				top: ~"calc(50% - 110px)";
+				left: ~"calc(50% - 150px)";
+				
+				@media(@tabV){
+					top: ~"calc(50% - 300px)";
+					left: ~"calc(50% - 300px)";
+				}
+				
+				@media(@tabH){
+					left: ~"calc(50% - 250px)";	
+				}
+				
+				@media(@tabH){
+					left: ~"calc(50% - 300px)";	
+				}
+			}
+		}	
+	}
+}
+
+/* Summary------------------------------------------ */
+#behavior_summary{
+	.slideImg{
+		background-image: url('@{behaviorSummary}');
+	}
+	
+}

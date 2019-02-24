@@ -1,0 +1,183 @@
+.slideImg{
+    position: absolute;
+    height: calc(~"100vh - 50px");
+    bottom: 0;
+    left: 0;
+   	right: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	
+	@media(@tabH){
+		max-width: none;
+		margin: 0;
+	}
+	
+	@media(@desktop){	
+		@{direction}: inherit;
+		width: 100%;
+	}
+}
+
+.bubble{
+	display: none;
+	position: absolute;
+	left: ~"calc(50% - 75px)";
+	top: ~"calc(50% - 46.5px)";
+	
+	@media(@tabV){
+		left: ~"calc(50% - 125px)";
+		top: ~"calc(50% - 89px)";
+	}
+	
+	@media(@tabH){
+		left: ~"calc(50% - 100px)";
+		top: ~"calc(50% - 70px)";
+	}
+	
+	@media(@desktop){
+		left: ~"calc(50% - 125px)";
+		top: ~"calc(50% - 89px)";
+	}
+	
+	> img{
+		width: 150px;
+		
+		@media(@tabV){
+			width: 250px;
+		}
+		
+		@media(@tabH){
+			width: 200px;
+		}
+		
+		@media(@desktop){
+			width: 250px;
+		}
+	}
+}
+
+.quote{
+	position: absolute;
+	bottom: 10vh;
+	width: 100%;
+	
+	blockquote{
+		background: url(../img/icons/quotes.svg) no-repeat;
+		background-color: @secColor;
+		background-size: 35px;
+		background-position: @direction 10px top 10px;
+		color: @white;
+		padding: 45px 20px 15px;
+		text-align: center;		
+		line-height: 1.5;
+		width: 50%;
+		margin: 0 auto;
+		max-width: 350px;
+		
+		@media(@tabV){
+			font-size: 2em;
+			background-size: 50px;
+			background-position: @direction 15px top 15px;
+			padding: 65px 20px 30px;
+		}
+		
+		@media(@tabH){
+			margin: 0;
+			margin-@{direction}: 225px;
+   			font-size: 1.75em;
+		}
+		
+		@media(@desktop){
+			margin-@{direction}: 300px;
+		}
+		
+		&.long{
+			font-size: 0.85em;
+			
+			@media(@tabV){
+				font-size: 1.25em;
+			}
+		}
+		
+		&.no-quotation{
+			background: none;
+			background-color: @secColor;
+			padding: 30px;
+		}
+		
+	}
+}
+
+.qContainer{
+	display: none;
+	position: absolute;
+    bottom: 0;
+    left: 0;
+	height: ~"calc(100% - 50px)";
+	width: 100%;
+	box-sizing: border-box;
+	padding: 60px 45px 15px;
+    background: @secColor;
+    color: @white;
+    text-align: center;
+	line-height: 1.25;
+	font-size: 1em;
+    
+	@media(@tabV){
+		padding: 130px 15px 15px;
+		line-height: 2;
+		font-size: 1.2em;
+	}
+	
+	@media(@tabH){	
+		width: 400px;
+		@{direction}: auto; 
+		padding: 30px 0;
+		line-height: 1.5;
+	}	
+	
+	@media(@desktop){
+		width: 31%;
+		font-size: 1.5em;
+		padding: 50px 0;
+	}
+	
+	.question{
+		max-width: 600px;
+    	margin: 0 auto;
+		padding: 15px 0 0;
+		
+		@media(@tabH){
+			margin: 0 55px;
+		}
+		
+		.desc{
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		
+		.qBtns{
+			margin: 0 0 20px;	
+			display: block;
+		}
+		
+		.feedback{
+			.option{
+				background: none;	
+				padding: 0;
+			}
+		}
+	}
+}
+
+.scenario h4{
+	text-align: center;
+	font-size: 1.5em;
+	margin: 40px 0;
+	
+	@media(@tabH){
+		text-align: @direction;
+		margin-@{direction}: 8%;
+	}
+}

@@ -1,0 +1,479 @@
+/* Summary Quiz ------------------------------------------ */
+
+/* Layout */
+#summaryQuiz, #quizResults{
+	.fp-tableCell{
+		vertical-align: inherit;
+	}
+	
+	.wrapper{
+		margin: 30px 0 0;
+		padding: 0 15px;
+    	box-sizing: border-box;
+		text-align: center;
+		
+		@media(@tabV){
+			margin: 70px 0 0;
+			padding: 0 30px;
+		}
+		
+		@media(@tabH){
+			padding: 0 60px;
+			text-align: @direction;
+		}
+		
+		@media(@desktop){
+			padding: 0 120px;
+		}
+		
+		h2{
+			color: @secColor;
+			margin: 0 0 15px;
+			
+			@media(@tabV){
+				margin: 0 0 35px;
+				font-size: 1.5em;
+			}
+			
+			@media(@tabH){
+				font-size: 2em;
+			}
+		}
+		
+		p{
+			font-size: 1em;
+			line-height: 1.5;
+			
+			@media(@tabV){
+				font-size: 1.25em;
+			}
+		}
+	}
+}
+
+
+#summaryQuiz{
+	.slideImg{
+		display: none;
+		z-index: -1;
+		
+		@media(@tabH){
+			display: block;
+			background-position: @op-direction;
+		}
+	}
+	
+	.wrapper{
+		max-width: 1200px;
+		
+		@media(@desktop){
+			text-align: @direction;
+		}
+	}
+	
+	.quizContainer{
+		max-width: 500px;
+		margin: 0 auto;
+		line-height: 1.5;
+		font-size: 1em;
+		
+		@media(@tabV){
+			font-size: 1.25em;
+		}
+		
+		@media(@tabH){
+			margin: 0;
+		}
+		
+		.question{
+			margin: 0 0 20px;
+			
+			p{
+				color: @mainColor;
+				margin: 0 0 10px;
+				font-size: 1.2em;
+				
+				@media(@tabV){
+					margin: 0 0 15px;
+				}
+			}
+			
+			.desc{
+				min-height: 80px;
+				
+				@media(@tabV){
+					min-height: 100px;
+				}
+			}
+		}
+		
+		.qBtns.icons{
+			.qBtn{
+				.devil{
+					background-image: url(../img/icons/devil_purple.svg);
+				}
+				
+				.angel{
+					background-image: url(../img/icons/angel_purple.svg);
+				}
+				
+				span{
+					color: @secColor;
+				}
+			}
+		}
+	}
+	
+	.quizFeedback{
+		list-style: none;
+		text-align: @direction;
+		
+		li{
+			border-top: 1px solid @gray;
+			padding: 5px 0;
+			display: flex;
+			align-items: center;
+			
+			@media(@tabV){
+				padding: 15px 0;
+			}
+			
+			.desc{
+				flex-grow: 1;
+				
+				p{
+					font-size: 0.85em;
+					
+					@media(@tabV){
+						font-size: 1.25em;
+					}
+				}
+				
+			}
+			
+			.selection, .result{
+				flex: 0 0 40px;
+				
+				@media(@tabV){
+					flex: 0 0 80px;
+				}
+				
+				@media(@tabH){
+					flex: 0 0 120px;
+				}
+				
+				span{
+					margin: 0 auto;
+					display: block;
+					height: 30px;
+					width: 30px;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-position: center; 
+					font-size: 0;
+					
+					@media(@tabV){
+						height: 50px;
+						width: 50px;
+					}
+					
+					@media(@tabH){
+						height: 70px;
+						width: 70px;
+					}
+				}
+			}
+			
+			.selection{
+   				padding: 0 5px;
+				
+				span{
+					width: 40px;
+					height: 40px;
+					background-size: 40px;
+					
+					@media(@tabV){
+						width: 80px;
+						height: 60px;
+						background-size: 80px;
+					}
+					
+					@media(@tabH){
+						width: 100px;
+						height: 80px;
+						background-size: 100px;
+					}
+				}
+				
+				.devil{
+					background-image: url(../img/icons/devil_purple.svg);
+				}
+				
+				.angel{
+					background-image: url(../img/icons/angel_purple.svg);					
+				}
+			}
+			
+			.result{
+				padding-top: 5px;
+
+				.wrong{
+					background-image: url(../img/icons/wrong.svg);
+				}
+
+				.correct{
+					background-image: url(../img/icons/correct.svg);
+				}
+			}
+		}
+	}
+}
+
+#quizResults{
+	.resultScale{
+		margin: 15px 0;
+		
+		@media(@tabV){
+			margin: 100px 0;
+		}
+		
+		.scaleWrapper{
+			display: flex;
+			max-width: 1200px;
+			height: 260px;
+			
+			@media(@tabV){
+				height: auto;
+				flex-direction: column;
+			}
+			
+			.scale{
+				display: flex;
+				width: 75px;
+				flex-direction: column-reverse;
+				
+				@media(@tabV){
+					width: auto;
+					height: 75px;
+					flex-direction: row;
+				}
+				
+				.icon{
+					height: 50px;
+					
+					@media(@tabV){
+						height: auto;
+						width: 120px;
+					}
+					
+					span{
+						width: 50px;
+						height: 100%;
+						display: block;
+						background-repeat: no-repeat;
+						background-position: center;
+						margin: 0 auto;
+						background-size: 50px;
+						
+						@media(@tabV){
+							width: 100px;
+							background-size: auto;
+						}
+					}
+
+					&.devil{
+						span{
+							background-image: url(../img/icons/devil_purple.svg);
+							
+						}
+					}
+
+					&.angel{
+						span{
+							background-image: url(../img/icons/angel_purple.svg); 
+							
+						}
+					}
+				}
+				
+				.progress{
+					flex-grow: 1;
+					display: flex;
+					justify-content: flex-end;
+					flex-direction: column;
+					position: relative;
+					align-items: center;
+					
+					@media(@tabV){
+						justify-content: center;
+					}
+					
+					.pin{
+						position: absolute;
+						bottom: -10px;
+						@{direction}: 3px;
+						transition: all 1s linear;
+						
+						@media(@tabV){
+							bottom: 53px;
+							@{direction}: -25px;
+						}
+
+						p{
+							display: none;
+							
+							@media(@tabV){
+								font-size: 1em;
+								font-weight: bold;
+							}
+						}
+						
+						.marker{
+							background: url(../img/icons/pin_purple.svg) no-repeat;
+							width: 15px;
+    						height: 20px;
+							transform: rotate(90deg);
+							
+							@media(@tabV){
+								width: 50px;
+   								height: 75px;
+								transform: rotate(0);
+							}
+						}
+					}
+					
+					.bar{
+						display: flex;
+						border: 2px solid @secColor;
+						border-top: none;
+						border-bottom: none;
+						height: 145px;
+						width: 30px;
+						box-sizing: border-box;
+						
+						@media(@tabV){
+							height: 30px;
+							width: 100%;
+							border: 2px solid @secColor;
+							border-@{direction}: none;
+							border-@{op-direction}: none;
+						}
+						
+						&:after{
+							content: "";
+							display: block;
+							height: 53px;
+							width: 30px;
+							background-image: url("../img/icons/arr_left_purple.svg");
+							background-repeat: no-repeat;
+							background-size: 30px;
+							position: absolute;
+							@{op-direction}: 23px;
+							top: -15px;
+							transform: rotate(90deg);	
+							
+							@media(@tabV){
+								height: 60px;
+								width: 35px;
+								background-size: 35px;
+								@{op-direction}: -20px;
+								top: 50%;
+								transform: translateY(-50%);	
+							}
+						}
+					}
+				}
+			}	
+				
+			.descriptions{
+				display: flex;
+    			flex-direction: column-reverse;
+				padding: 70px 0 50px;
+				
+				@media(@tabV){
+					width: 100%;
+					width: ~"calc(100% - 210px)";
+					margin: 0 auto;
+					justify-content: space-around;
+					padding: 0;
+					flex-direction: row;
+				}
+
+				@media(@tabH){
+					width: ~"calc(100% - 260px)";
+					transform: translateY(-10px);
+				}
+
+				> div{
+					flex-grow: 1;
+					display: flex;
+    				align-items: center;
+					position: relative;
+					
+					@media(@tabV){
+						display: table-cell;
+						padding: 0 15px;
+						width: ~"calc(100% / 3)";
+						
+					}
+
+					&:after{
+						content: "";
+						display: block;
+						position: absolute;
+						background: @secColor;
+						width: 145px;
+						height: 2px;
+						top: 0;
+						@{direction}: -52px;
+						
+						@media(@tabV){
+							@{direction}: auto;
+							top: auto;
+							bottom: -10px;
+							@{op-direction}: 0;
+							width: 2px;
+							height: 100px;
+						}
+
+						@media(@tabH){
+							height: 111px;
+						}
+					}
+
+					&:last-child{
+						&:after{
+							display: none;
+						}
+					}
+
+					p{
+						text-align: @direction;
+						font-size: 0.85em;
+						
+						@media(@tabV){
+							text-align: center;
+							border-top: 2px solid fade(@secColor, 50%);
+							padding-top: 5px;
+							font-size: 1em;
+						}
+						
+						@media(@tabH){
+							font-size: 1.2em;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.thankyou{
+		p:last-child{
+			display: none;
+			
+			@media(@tabV){
+				display: block;
+			}
+		}
+	}
+}

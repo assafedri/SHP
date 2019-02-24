@@ -1,0 +1,140 @@
+header{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2000;
+	box-shadow: 0px 0px 1px 0px #666;
+	background-color: @white; 
+	
+	#menu{
+		overflow: hidden;
+		
+		li{
+			display: none;
+			text-align: center;
+			font-size: 1.1em;
+			
+			@media(@tabV){
+				font-size: 1.2em;
+			}
+			
+			@media(@tabH){
+				display: inherit;
+				float: @direction;
+				font-size: 1em;
+			}
+			
+			@media(@desktop){
+				font-size: 1.2em;
+			}
+			
+			a{
+				display: block;
+				padding: 0 10px;
+				text-decoration: none;
+				color: @gray;
+				
+				@media(@tabH){
+					padding: 0 15px;
+				}
+				
+				&:hover, &:focus{
+					outline: none;
+					background-color: darken(@white, 5%);
+				}
+				
+				span{
+					display: block;
+					padding: 15px 0 10px;
+					border-bottom: 5px solid transparent;
+					height: 50px;
+					box-sizing: border-box;
+					
+					@media(@tabH){
+						padding: 15px 10px 10px; 
+					}
+				}
+			}
+			
+			&:first-child{
+				display: block;
+				text-align: @direction;				
+				
+				@media(@tabV){
+					display: inherit;
+				}
+				
+				@media(@desktop){
+					font-size: 1.2em;
+					width: 300px;
+				}
+				
+				a{
+					background: @gray;
+					color: @white;
+					
+					&:hover, &:focus{
+						background-color: lighten(@gray, 10%);
+					}
+					
+					span{
+					    padding: 15px 10px;
+						border-bottom-width: 0;
+						height: 50px;
+						box-sizing: border-box;
+						line-height: 1.25;
+						
+						@media(@tabV){
+							border-bottom-width: 5px;
+						}
+						
+						@media(@desktop){
+							padding: 15px 15px 10px;
+						}
+					}
+				}
+			}
+			
+			&.active{
+				a{
+					background-color: @white;
+					
+					span{
+						border-color: @gray;
+					}
+				}
+				
+				&:first-child{
+					a{
+						background-color: @gray;
+						
+						&:hover, &:focus{
+							background-color: lighten(@gray, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	a.logo{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 50px;
+		box-sizing: border-box;
+		overflow: hidden;
+		display: flex;
+		max-width: ~"calc(100% - 250px)";
+		justify-content: flex-end;
+		align-items: center;
+		padding: 5px 15px;
+		
+		img{
+			box-sizing: border-box;
+			max-height: 100%;
+			background: @white;
+		}
+	}
+}
